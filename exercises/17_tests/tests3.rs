@@ -14,6 +14,15 @@ impl Rectangle {
 
         Rectangle { width, height }
     }
+
+    fn check_width(&self) -> i32 {
+        self.width
+    }
+
+    fn check_height(&self) -> i32 {
+        self.height
+    }
+
 }
 
 fn main() {
@@ -29,13 +38,14 @@ mod tests {
         // TODO: This test should check if the rectangle has the size that we
         // pass to its constructor.
         let rect = Rectangle::new(10, 20);
-        assert_eq!(todo!(), 10); // Check width
-        assert_eq!(todo!(), 20); // Check height
+        assert_eq!(rect.check_width(), 10); // Check width
+        assert_eq!(rect.check_height(), 20); // Check height
     }
 
     // TODO: This test should check if the program panics when we try to create
     // a rectangle with negative width.
     #[test]
+    #[should_panic]
     fn negative_width() {
         let _rect = Rectangle::new(-10, 10);
     }
@@ -43,6 +53,7 @@ mod tests {
     // TODO: This test should check if the program panics when we try to create
     // a rectangle with negative height.
     #[test]
+    #[should_panic]
     fn negative_height() {
         let _rect = Rectangle::new(10, -10);
     }
